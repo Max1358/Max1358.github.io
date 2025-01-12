@@ -1,0 +1,943 @@
+/*  стиль для фотки   */
+.image-container_1 {
+  /* размер */
+  width: 60%;
+  /* округление */
+  border-radius: 60%;
+  /* тень, в параметрах отвечаем за размер тени и за цвет тени*/
+  box-shadow: 0 0 110px rgba(255, 0, 0, 1);
+  /* отступ снизу элемента */
+  margin-bottom: 3.5em;
+  /* плавный переход для анимации вращения */
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+/* анимации фото  */
+.image-container_1:hover {
+  transform: scale(1.2) rotate(360deg);
+}
+
+/* делаем стиль видео для фона на сайте  */
+/* пишем блок стилей для тегов body и html, чтобы на сайте не было лишней прокрутки отступов около видео, чтобы видео прилегало к краям сайта ИТД */
+body,
+html {
+  /* убираем внешние отступы */
+  margin: 0;
+  /* убираем внутрение отступы */
+  padding: 0;
+  /* Устанавливаем высоту равной 100% от высоты окна браузера */
+  height: 100%;
+}
+/* пишем блок стилей для тега video, чтобы видео правильно отображалось на сайте */
+video {
+  /* фиксируем, чтобы при изминении окна видео не поплыло */
+  position: fixed;
+  /* фиксируем верхний и левый угол */
+  left: 0;
+  top: 0;
+  /* растягиваем видео чтобы оно было равно высоте и ширине окна */
+  width: 100%;
+  height: 100%;
+  /* контролирует как видео масштабируется */
+  object-fit: cover;
+  /* устонавлеваем, чтобы видео было позади других элементов на сайте */
+  z-index: -1;
+}
+
+/* шрифты */
+.custom_1 {
+  font-family: "Honk";
+}
+.custom_2 {
+  font-family: Bungee Spice;
+}
+
+/* кнопки */
+.a_1 {
+  background: linear-gradient(to bottom, #f0a9f5, #f8b880);
+  color: #5c5c5c;
+  border: none;
+  border-radius: 20px;
+  padding: 3px 5px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 8px #d7a1d3, 0 12px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.a_1:hover {
+  background: linear-gradient(to bottom, #f7d2f8, #fbe6d8);
+  transform: translateY(-2px);
+  box-shadow: 0 10px #c9a1d3, 0 14px 22px rgba(0, 0, 0, 0.3);
+}
+.a_1:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px #a87cb5, 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.a_2 {
+  background: linear-gradient(to bottom, #f245f8, #f7c4a2);
+  color: #444;
+  border: none;
+  border-radius: 20px;
+  padding: 3px 5px; /* Увеличил внутренние отступы */
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 8px #ff6384, 0 12px 20px rgba(0, 0, 0, 0.2); /* Больше объемности */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out; /* Ускорил переход */
+}
+.a_2:hover {
+  background: linear-gradient(to bottom, #f7d2f8, #fa94bb);
+  transform: translateY(-2px); /* Уменьшил сдвиг вверх */
+  box-shadow: 0 10px #e3538a, 0 14px 22px rgba(0, 0, 0, 0.3); /* Более яркая тень при наведении */
+}
+.a_2:active {
+  transform: translateY(4px); /* Уменьшил сдвиг вниз */
+  box-shadow: 0 0px #e245a8, 0 6px 14px rgba(0, 0, 0, 0.2); /* Прижатая тень */
+}
+/* бегущая строка */
+.marquee-wrapper {
+  /* фиксация элемента на одном месте */
+  position: absolute;
+  /* прикрепление к низу сайта */
+  bottom: 0;
+  /* занимем всю ширину окна */
+  width: 100%;
+  /* пространство в котором находиться строка (ограничивает высоту) */
+  height: 10%;
+  /* задаем прозрчный фон контейнеру или какой хотим */
+  background: none;
+  /* отключаем перенос строк чтобы все влезало в контейнер */
+  white-space: nowrap;
+  /* закрепляем информ. ровно по середине контейнера */
+  /* display: flex; */
+  align-items: center;
+  animation: scroll 25s linear infinite;
+  display: flex;
+  overflow: visible;
+  top: 2162px;
+}
+/* стиль для фоток на бегущей строке */
+.marquee-content img {
+  /* ширина */
+  width: 70px;
+  /* высота */
+  height: 73px;
+  /* отступ между элементми */
+  margin: 50px;
+}
+/* стиль для текста на БС */
+.M_text {
+  /* жирность шрифта */
+  font-weight: 700;
+  /* цвет */
+  color: rgb(174, 0, 255);
+  /* анимация для мигания: длительность итд */
+  animation: blink 1s infinite;
+}
+/* анимация мигания */
+@keyframes blink {
+  /* цикл мигания цвета в % */
+  0% {
+    color: #ff8800;
+  }
+  33% {
+    color: #ff0033;
+  }
+  66% {
+    color: #9900ff;
+  }
+  /* на 100 процентах нужно возвратиться к первоначальному цвету чтобы был гладкий переход */
+  100% {
+    color: #ff8800;
+  }
+}
+@keyframes scroll {
+  from {
+    transform: translateX(0%); /* Начало строки за пределами экрана */
+  }
+  to {
+    transform: translateX(-100%); /* Конец строки */
+  }
+}
+
+/* курсор */
+body {
+  cursor: url(star.png) 16 16, auto;
+  cursor: url(brightness.png) 16 16, auto;
+  cursor: url(flower.png) 16 16, auto;
+  animation: cursorAnimation 2s infinite alternate;
+}
+/* анимация курсора */
+@keyframes cursorAnimation {
+  0% {
+    cursor: url(star.png) 16 16, auto;
+  }
+  33% {
+    cursor: url(brightness.png) 16 16, auto;
+  }
+  66% {
+    cursor: url(flower.png) 16 16, auto;
+  }
+  /* в конце прописываем первый курсор для плавного перехода */
+  100% {
+    cursor: url(star.png) 16 16, auto;
+  }
+}
+.trail {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-image: url(star.png); /* Замените на путь к своему изображению */
+  background-size: contain; /* Чтобы изображение не растягивалось */
+  background-repeat: no-repeat; /* Чтобы не было повторов изображения */
+  pointer-events: none; /* Не блокирует другие события */
+  animation: trail 0.8s forwards;
+}
+@keyframes trail {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/* navbar */
+.navbar {
+  position: relative;
+  z-index: 1; /* чтобы текст был поверх видео */
+}
+#background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Заполняем весь контейнер */
+  z-index: -1; /* Видео будет находиться под содержимым */
+}
+
+/* реклама */
+.container {
+  position: relative;
+}
+
+.a_3 {
+  position: absolute;
+  top: -720px; /* Расположение от верхнего края */
+  right: -297px; /* Расположение от правого края */
+  text-transform: uppercase;
+  color: #007bff;
+  transform: rotate(35deg); /* Поворот текста */
+  text-decoration: none;
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #6f00ff, #0059ff);
+  color: #444;
+  box-shadow: 0 8px #65016e, 0 12px 20px rgba(85, 1, 78, 0.2);
+}
+.arrow {
+  position: absolute;
+  top: -320px; /* Расположение от верхнего края */
+  right: -245px; /* Расположение от правого края */
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: rotate(-48.5deg);
+}
+
+/* текст внизу */
+.neonk {
+  display: flex;
+  justify-content: center;
+}
+.text {
+  position: absolute;
+  width: 3000px;
+  top: 1100px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  animation: glow 1.5s infinite alternate;
+  margin: 0 auto; /* Центрирует колонку на странице */
+  line-height: 1.5; /* Устанавливает интерлиньяж для удобства чтения */
+  max-width: 25%;
+}
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #ff8e8e, 0 0 10px #fff, 0 0 15px #ff00ff;
+  }
+  50% {
+    text-shadow: 0 0 10px #ffb1b1, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+  }
+  100% {
+    text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* фотки анимация на красном фоне */
+.image-container {
+  position: absolute;
+  display: flex;
+  justify-content: center; /* Центрирует элементы по горизонтали */
+  align-items: center; /* Центрирует элементы по вертикали */
+  transform: translateY(695px);
+  position: relative;
+  height: 100vh; /* Устанавливает высоту контейнера равной высоте экрана */
+  max-width: fit-content; /* Максимальная ширина — по размеру содержимого */
+  max-height: fit-content;
+  pointer-events: none;
+}
+
+.image {
+  width: 500px;
+  height: auto;
+  opacity: 0;
+  transform: translateY(-100%) rotate(180deg);
+  transition: transform 1s ease, opacity 1s ease;
+  margin: 0 400px; /* Добавляет пространство между изображениями */
+  /* box-shadow: 0 0 110px rgba(255, 0, 0, 1); */
+  border-radius: 100%;
+}
+.image.show {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+
+.image.hide {
+  opacity: 0;
+  transform: translateY(-100%) rotate(180deg);
+}
+.redredred {
+  transform: translateY(110px);
+}
+
+.downstairs {
+  position: absolute;
+  margin-top: -90px;
+  margin-left: 1350px;
+  font-family: Yuji Mai;
+  font-size: 40px;
+  color: #fbff03;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  height: 100vh;
+}
+
+.black-bar {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  position: absolute;
+  transform: translateY(1170px);
+  z-index: -1;
+}
+
+/* бегущая строка */
+.marquee-wrapper1 {
+  /* фиксация элемента на одном месте */
+  position: absolute;
+  /* прикрепление к низу сайта */
+  bottom: 0;
+  /* занимем всю ширину окна */
+  width: 100%;
+  /* пространство в котором находиться строка (ограничивает высоту) */
+  height: 10%;
+  /* задаем прозрчный фон контейнеру или какой хотим */
+  background: none;
+  /* отключаем перенос строк чтобы все влезало в контейнер */
+  white-space: nowrap;
+  /* закрепляем информ. ровно по середине контейнера */
+  /* display: flex; */
+  align-items: center;
+  animation: scroll1 25s linear infinite;
+  display: flex;
+  overflow: visible;
+  top: 3232px;
+}
+/* стиль для фоток на бегущей строке */
+.marquee-content1 img {
+  /* ширина */
+  width: 70px;
+  /* высота */
+  height: 73px;
+  /* отступ между элементми */
+  margin: 50px;
+}
+/* стиль для текста на БС */
+.M_text {
+  /* жирность шрифта */
+  font-weight: 700;
+  /* цвет */
+  color: rgb(174, 0, 255);
+  /* анимация для мигания: длительность итд */
+  animation: blink1 1s infinite;
+}
+/* анимация мигания */
+@keyframes blink1 {
+  /* цикл мигания цвета в % */
+  0% {
+    color: #ff8800;
+  }
+  33% {
+    color: #ff0033;
+  }
+  66% {
+    color: #9900ff;
+  }
+  /* на 100 процентах нужно возвратиться к первоначальному цвету чтобы был гладкий переход */
+  100% {
+    color: #ff8800;
+  }
+}
+@keyframes scroll1 {
+  from {
+    transform: translateX(0%); /* Начало строки за пределами экрана */
+  }
+  to {
+    transform: translateX(-100%); /* Конец строки */
+  }
+}
+
+.vodopad {
+  position: absolute;
+  top: 2264px;
+}
+/* видео водопад */
+.image-container {
+  position: absolute;
+  display: flex;
+  justify-content: center; /* Центрирует элементы по горизонтали */
+  align-items: center; /* Центрирует элементы по вертикали */
+  margin-top: -1560px;
+  position: relative;
+  height: 100vh; /* Устанавливает высоту контейнера равной высоте экрана */
+}
+
+.image {
+  width: 500px;
+  height: auto;
+  opacity: 0;
+  transform: translateY(-100%) rotate(180deg);
+  transition: transform 1s ease, opacity 1s ease;
+  margin: 0 400px; /* Добавляет пространство между изображениями */
+  border-radius: 100%;
+}
+
+.image.show {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+  text-shadow: 0 0 100px var(--shadow-color);
+}
+
+.image.hide {
+  opacity: 0;
+  transform: translateY(-100%) rotate(180deg);
+}
+
+/* 2 */
+.supportk2 {
+  position: absolute;
+  display: flex;
+  justify-content: center; /* Центрирует элементы по горизонтали */
+  align-items: center; /* Центрирует элементы по вертикали */
+  top: 1530px;
+  left: 350px;
+  position: relative;
+  height: 100vh; /* Устанавливает высоту контейнера равной высоте экрана */
+}
+
+.support2 {
+  width: 200px;
+  height: auto;
+  box-shadow: 0 0 110px rgb(30, 255, 0);
+  border-radius: 100%;
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+/* анимации фото  */
+.support2:hover {
+  transform: scale(1.4) rotate(360deg);
+}
+
+/* 3 */
+.supportk3 {
+  position: absolute;
+  display: flex;
+  justify-content: center; /* Центрирует элементы по горизонтали */
+  align-items: center; /* Центрирует элементы по вертикали */
+  top: 1230px;
+  left: 350px;
+  position: relative;
+  height: 100vh; /* Устанавливает высоту контейнера равной высоте экрана */
+}
+
+.support3 {
+  width: 200px;
+  height: auto;
+  box-shadow: 0 0 100px rgb(30, 255, 1);
+  border-radius: 100%;
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+/* анимации фото  */
+.support3:hover {
+  transform: scale(1.4) rotate(360deg);
+}
+
+.greenwyk {
+  display: flex;
+  justify-content: left;
+}
+.greenwy {
+  position: absolute;
+  width: 2000px;
+  top: 2330px;
+  left: 180px;
+  font-size: 45px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  animation: glow1 1.5s infinite alternate;
+  margin: 0 auto; /* Центрирует колонку на странице */
+  line-height: 1.5; /* Устанавливает интерлиньяж для удобства чтения */
+  max-width: 25%;
+}
+@keyframes glow1 {
+  0% {
+    text-shadow: 0 0 5px #8fff8e, 0 0 10px #00ff00, 0 0 15px #00ff00;
+  }
+  50% {
+    text-shadow: 0 0 10px #80ff80, 0 0 20px #00ff00, 0 0 30px #00ff00;
+  }
+  100% {
+    text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00;
+  }
+}
+
+.black-bar2 {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  position: absolute;
+  transform: translateY(902px);
+  z-index: -1;
+}
+
+.winter {
+  position: absolute;
+  top: 3328px;
+}
+
+.black-bar1 {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  position: absolute;
+  transform: translateY(2234px);
+  z-index: -1;
+}
+
+.black-bar2 {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  position: absolute;
+  transform: translateY(226px);
+  z-index: -1;
+}
+
+/* бегущая строка */
+.marquee-wrapper2 {
+  /* фиксация элемента на одном месте */
+  position: absolute;
+  /* прикрепление к низу сайта */
+  bottom: 0;
+  /* занимем всю ширину окна */
+  width: 100%;
+  /* пространство в котором находиться строка (ограничивает высоту) */
+  height: 10%;
+  /* задаем прозрчный фон контейнеру или какой хотим */
+  background: none;
+  /* отключаем перенос строк чтобы все влезало в контейнер */
+  white-space: nowrap;
+  /* закрепляем информ. ровно по середине контейнера */
+  /* display: flex; */
+  align-items: center;
+  animation: scroll2 25s linear infinite;
+  display: flex;
+  overflow: visible;
+  top: 4292px;
+}
+/* стиль для фоток на бегущей строке */
+.marquee-content2 img {
+  /* ширина */
+  width: 70px;
+  /* высота */
+  height: 73px;
+  /* отступ между элементми */
+  margin: 50px;
+}
+/* стиль для текста на БС */
+.M_text {
+  /* жирность шрифта */
+  font-weight: 700;
+  /* цвет */
+  color: rgb(174, 0, 255);
+  /* анимация для мигания: длительность итд */
+  animation: blink2 1s infinite;
+}
+/* анимация мигания */
+@keyframes blink2 {
+  /* цикл мигания цвета в % */
+  0% {
+    color: #ff8800;
+  }
+  33% {
+    color: #ff0033;
+  }
+  66% {
+    color: #9900ff;
+  }
+  /* на 100 процентах нужно возвратиться к первоначальному цвету чтобы был гладкий переход */
+  100% {
+    color: #ff8800;
+  }
+}
+@keyframes scroll2 {
+  from {
+    transform: translateX(0%); /* Начало строки за пределами экрана */
+  }
+  to {
+    transform: translateX(-100%); /* Конец строки */
+  }
+}
+
+.icek {
+  display: flex;
+  justify-content: center;
+  margin-right: -800px;
+}
+.ice {
+  position: absolute;
+  top: 3400px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  animation: glowice 1.5s infinite alternate;
+  margin: 0 auto; /* Центрирует колонку на странице */
+  line-height: 1.5; /* Устанавливает интерлиньяж для удобства чтения */
+  max-width: 50%;
+}
+@keyframes glowice {
+  0% {
+    text-shadow: 0 0 5px #a6d7ff, 0 0 10px #d9f7ff, 0 0 15px #1ca3ec;
+  }
+  50% {
+    text-shadow: 0 0 10px #91ccee, 0 0 20px #7dd1ff, 0 0 30px #48bdf2;
+  }
+  100% {
+    text-shadow: 0 0 20px #79c0ff, 0 0 40px #63aaff, 0 0 50px #3993d0;
+  }
+}
+
+/* снежинки */
+#snow-container {
+  position: absolute;
+  top: 3329px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Снежинки не блокируют клики */
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px; /* Начинают выше экрана */
+  width: 10px;
+  height: 10px;
+  background: white; /* Белые снежинки */
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Эффект свечения */
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg); /* Падают вниз и вращаются */
+  }
+}
+
+#bubbles-container {
+  position: absolute;
+  top: 1000px;
+  left: 0;
+  width: calc(100% + 4cm); /* Расширяем по ширине */
+  height: calc(100% + 14cm); /* Расширяем по высоте */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall1 linear infinite;
+}
+@keyframes fall1 {
+  to {
+    transform: translateY(100vh) rotate(360deg); /* Падают вниз и вращаются */
+  }
+}
+
+.image_sky {
+  position: absolute;
+  display: block; /* Убирает лишние отступы, если изображение — это inline-элемент */
+  width: 100vw; /* Растягивает изображение на всю ширину экрана */
+  height: auto;
+  margin-top: 325px;
+  margin-left: 180px;
+  height: 1054.5px; /* Устанавливает высоту контейнера равной высоте экрана */
+  z-index: -1;
+}
+
+/* бегущая строка */
+.marquee-wrapper3 {
+  /* фиксация элемента на одном месте */
+  position: absolute;
+  /* прикрепление к низу сайта */
+  bottom: 0;
+  /* занимем всю ширину окна */
+  width: 100%;
+  /* пространство в котором находиться строка (ограничивает высоту) */
+  height: 10%;
+  /* задаем прозрчный фон контейнеру или какой хотим */
+  background: none;
+  /* отключаем перенос строк чтобы все влезало в контейнер */
+  white-space: nowrap;
+  /* закрепляем информ. ровно по середине контейнера */
+  /* display: flex; */
+  align-items: center;
+  animation: scroll2 25s linear infinite;
+  display: flex;
+  overflow: visible;
+  top: 5445px;
+}
+/* стиль для фоток на бегущей строке */
+.marquee-content3 img {
+  /* ширина */
+  width: 70px;
+  /* высота */
+  height: 73px;
+  /* отступ между элементми */
+  margin: 50px;
+}
+/* стиль для текста на БС */
+.M_text {
+  /* жирность шрифта */
+  font-weight: 700;
+  /* цвет */
+  color: rgb(174, 0, 255);
+  /* анимация для мигания: длительность итд */
+  animation: blink3 1s infinite;
+}
+/* анимация мигания */
+@keyframes blink3 {
+  /* цикл мигания цвета в % */
+  0% {
+    color: #ff8800;
+  }
+  33% {
+    color: #ff0033;
+  }
+  66% {
+    color: #9900ff;
+  }
+  /* на 100 процентах нужно возвратиться к первоначальному цвету чтобы был гладкий переход */
+  100% {
+    color: #ff8800;
+  }
+}
+@keyframes scroll2 {
+  from {
+    transform: translateX(0%); /* Начало строки за пределами экрана */
+  }
+  to {
+    transform: translateX(-100%); /* Конец строки */
+  }
+}
+
+.black-bar3 {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  position: absolute;
+  transform: translateY(1379px);
+  z-index: -1;
+}
+
+.image_banner_giga {
+  position: absolute;
+  width: 526.5px;
+  margin-top: 501px;
+  margin-left: 1547px;
+  transform: rotate(90deg);
+}
+.image_banner_giga1 {
+  position: absolute;
+  width: 526.5px;
+  margin-top: 1028px;
+  margin-left: 1547px;
+  transform: rotate(90deg);
+}
+.image_banner_giga2 {
+  position: absolute;
+  width: 528px;
+  margin-top: 501px;
+  margin-left: -172px;
+  transform: rotate(-90deg);
+}
+.image_banner_giga3 {
+  position: absolute;
+  width: 528px;
+  margin-top: 1027px;
+  margin-left: -172px;
+  transform: rotate(-90deg);
+}
+.image_banner_giga4 {
+  position: absolute;
+  width: 450px;
+  margin-top: 400px;
+  margin-left: 700px;
+  border-radius: 60%;
+  box-shadow: 0 0 110px rgb(0, 26, 255);
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+.image_banner_giga4:hover {
+  transform: scale(1.2) rotate(360deg);
+}
+.image_banner_giga5 {
+  position: absolute;
+  width: 500px;
+  transform: translateY(530px);
+  margin-left: 1110px;
+}
+.image_banner_giga6 {
+  position: absolute;
+  width: 528px;
+  transform: translateY(512.5px);
+  margin-left: 200px;
+}
+
+.shaking-button {
+  margin-top: 920px;
+  margin-left: 800px;
+  font-size: 30px;
+  padding: 12px 24px;
+  border: none;
+  background-color: #3be8ff;
+  color: rgb(255, 17, 0);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: Honk;
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgb(0, 26, 255);
+}
+
+.shaking-button:hover {
+  animation: hardcore-shake 0.2s infinite;
+}
+
+@keyframes hardcore-shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  75% {
+    transform: translateX(-8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.chad {
+  position: absolute;
+  top: 5120px;
+  left: 200px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  animation: glowice12 1.5s infinite alternate;
+  margin: 0 auto; /* Центрирует колонку на странице */
+  line-height: 1.5; /* Устанавливает интерлиньяж для удобства чтения */
+  max-width: 80%;
+}
+@keyframes glowice12 {
+  0% {
+    text-shadow: 0 0 5px #a6cfff, 0 0 10px #80d4ff, 0 0 15px #3a88e8;
+  }
+  50% {
+    text-shadow: 0 0 10px #5fa7e9, 0 0 20px #7ac7ff, 0 0 30px #379de6;
+  }
+  100% {
+    text-shadow: 0 0 20px #4a8bd2, 0 0 40px #2894e6, 0 0 50px #186cb2;
+  }
+}
+
+.black-bar4 {
+  width: 100%;
+  height: 500px;
+  background-color: black;
+  position: absolute;
+  transform: translateY(400px);
+  z-index: -1;
+}
+
+.end {
+  position: absolute;
+  font-size: 200px;
+  margin-top: 500px;
+  font-family: Honk;
+  left: 565px;
+}
+
+/* Адаптивный стиль для экранов меньше 768px (телефоны) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+  }
+}
